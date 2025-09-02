@@ -17,60 +17,58 @@ const Onboarding = () => {
       <div className="mt-12 grid md:grid-cols-2 gap-10 items-center">
         {/* Steps */}
         <div className="space-y-6">
-          <div className="p-4 border rounded-lg shadow-sm bg-white">
-            <h3 className="font-semibold text-green-800">
-              Step 1: Get your referral code
-            </h3>
-            <p className="text-gray-600 text-sm mt-1">
-              Contact us to receive your unique referral code.
-            </p>
-          </div>
-          <div className="p-4 border rounded-lg shadow-sm bg-white">
-            <h3 className="font-semibold text-green-800">
-              Step 2: Register on Amrutam
-            </h3>
-            <p className="text-gray-600 text-sm mt-1">
-              Sign up on the Amrutam Doctors app or website to join our network.
-            </p>
-          </div>
-          <div className="p-4 border rounded-lg shadow-sm bg-white">
-            <h3 className="font-semibold text-green-800">
-              Step 3: Complete KYC
-            </h3>
-            <p className="text-gray-600 text-sm mt-1">
-              Fill in details and upload documents for verification.
-            </p>
-          </div>
-          <div className="p-4 border rounded-lg shadow-sm bg-white">
-            <h3 className="font-semibold text-green-800">
-              Step 4: Start consulting
-            </h3>
-            <p className="text-gray-600 text-sm mt-1">
-              Once verified, begin offering consultations and helping patients.
-            </p>
-          </div>
+          {[
+            {
+              step: "Step 1: Get your referral code",
+              desc: "Contact us to receive your unique referral code.",
+            },
+            {
+              step: "Step 2: Register on Amrutam",
+              desc: "Sign up on the Amrutam Doctors app or website to join our network.",
+            },
+            {
+              step: "Step 3: Complete KYC",
+              desc: "Fill in details and upload documents for verification.",
+            },
+            {
+              step: "Step 4: Start consulting",
+              desc: "Once verified, begin offering consultations and helping patients.",
+            },
+          ].map((item, idx) => (
+            <div
+              key={idx}
+              className="p-4 border rounded-lg shadow-sm bg-white text-center md:text-left"
+            >
+              <h3 className="font-semibold text-green-800">{item.step}</h3>
+              <p className="text-gray-600 text-sm mt-1">{item.desc}</p>
+            </div>
+          ))}
         </div>
 
         {/* Image */}
-        <div className="flex justify-center ">
+        <div className="relative flex justify-center">
           <img
             src="https://i.ibb.co/gLmB1LhN/Group-1000006305.png"
             alt="Onboarding"
-            className="w-[400px] md:w-[500px] relative"
+            className="w-full max-w-sm md:max-w-md lg:max-w-lg"
           />
-          <img src="https://i.ibb.co/QvbcKwtL/final-1-1.png" alt="" className="absolute w-100 mt-10" />
+          <img
+            src="https://i.ibb.co/QvbcKwtL/final-1-1.png"
+            alt="overlay"
+            className="absolute w-70 md:w-40 lg:w-100 bottom-0 "
+          />
         </div>
       </div>
 
       {/* Tabs */}
-      <div className="flex justify-center gap-4 mt-12">
-        <button className="px-6 py-2 bg-green-800 text-white rounded-md font-medium">
+      <div className="flex flex-col md:flex-row justify-center gap-4 mt-12">
+        <button className="px-6 py-2 bg-green-800 text-white rounded-md font-medium w-full md:w-auto">
           Consultations
         </button>
-        <button className="px-6 py-2 border border-green-800 text-green-800 rounded-md font-medium">
+        <button className="px-6 py-2 border border-green-800 text-green-800 rounded-md font-medium w-full md:w-auto">
           Payment withdrawal
         </button>
-        <button className="px-6 py-2 border border-green-800 text-green-800 rounded-md font-medium">
+        <button className="px-6 py-2 border border-green-800 text-green-800 rounded-md font-medium w-full md:w-auto">
           Schedule
         </button>
       </div>

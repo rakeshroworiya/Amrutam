@@ -1,21 +1,46 @@
-import React from "react";
+import React, { useState } from "react";
+import { HiMenu, HiX } from "react-icons/hi";
 
 const Hero = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
     <div className="bg-[#FFF9ED] min-h-screen flex flex-col">
       {/* Navbar */}
-      <nav className="flex justify-between items-center px-10 py-6 bg-[#FFF9ED]">
-        <h1 className="text-2xl font-bold text-green-800 tracking-widest">AMRUTAM</h1>
-        <ul className="flex space-x-8 text-gray-700 font-medium">
+      <nav className="flex justify-between items-center px-6 md:px-10 py-6 bg-[#FFF9ED]">
+        <h1 className="text-2xl font-bold text-green-800 tracking-widest">
+          AMRUTAM
+        </h1>
+
+        {/* Desktop Menu */}
+        <ul className="hidden md:flex space-x-8 text-gray-700 font-medium">
           <li className="hover:text-green-800 cursor-pointer">About Us</li>
           <li className="hover:text-green-800 cursor-pointer">Onboarding</li>
           <li className="hover:text-green-800 cursor-pointer">FAQ</li>
           <li className="hover:text-green-800 cursor-pointer">Testimonials</li>
         </ul>
+
+        {/* Mobile Menu Button */}
+        <button
+          className="md:hidden text-3xl text-green-800"
+          onClick={() => setIsOpen(!isOpen)}
+        >
+          {isOpen ? <HiX /> : <HiMenu />}
+        </button>
       </nav>
 
+      {/* Mobile Dropdown */}
+      {isOpen && (
+        <div className="md:hidden bg-[#FFF9ED] px-6 pb-4 space-y-4 text-gray-700 font-medium">
+          <p className="hover:text-green-800 cursor-pointer">About Us</p>
+          <p className="hover:text-green-800 cursor-pointer">Onboarding</p>
+          <p className="hover:text-green-800 cursor-pointer">FAQ</p>
+          <p className="hover:text-green-800 cursor-pointer">Testimonials</p>
+        </div>
+      )}
+
       {/* Hero Section */}
-      <div className="flex flex-col md:flex-row justify-between items-center px-10 md:px-20 py-16">
+      <div className="flex flex-col md:flex-row justify-between items-center px-6 md:px-20 py-16">
         {/* Left Text */}
         <div className="max-w-lg space-y-6">
           <p className="text-sm text-gray-600">Namaste, Welcome to Amrutam</p>
@@ -46,7 +71,6 @@ const Hero = () => {
 
         {/* Right Images */}
         <div className="relative mt-10 md:mt-0">
-          {/* Doctors Image */}
           <img
             src="https://i.ibb.co/5hHZKQxD/Group-1000006298.png"
             alt="Doctors"
